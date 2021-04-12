@@ -40,7 +40,7 @@ int main(void){
         background = 1;
     } 
 
-    pid_t pid; 
+    pid_t pid; //process id
     pid = fork(); // fork creates child process
     if(pid < 0){  // pid of parent fork starts from 1 
         return 1;
