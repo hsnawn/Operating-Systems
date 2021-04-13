@@ -11,3 +11,4 @@ Below is the description of each file and their respective lab
 ## Lab 3
   ###   shell_B.c
   ###   shell_C.c
+  ###   scheduling_algorithm.c
