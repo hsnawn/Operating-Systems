@@ -12,3 +12,9 @@ Below is the description of each file and their respective lab
   ###   [shell_B.c](./shell_B.c)
   ###   [shell_C.c](./shell_C.c)
   ###   [scheduling_algorithm.c](./scheduling_algorithm.c)
+
+## Lab 4
+  ###   [4.24](./Lab4/monte_carlo.c)
+  ###   [4.27](./Lab4/fibonacci_series.c)
+  ###   [7.15](./Lab4/concurrent_fibonacci_series.c)
+  ###   [7.17](./Lab4/several_monte_carlo.c)
