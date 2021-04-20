@@ -1,7 +1,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-int n=0,i;
+int n=0, i;
 int series[];
 void *runner(void *param);
 void modify_n(int y){
