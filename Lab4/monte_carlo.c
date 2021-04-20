@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define SEED 35791246
-int niter, count=0; //Global variable of number of points occuring within a circle
+int niter,count=0; //Global variable of number of points occuring within a circle
 void modify_niter(int y){
 	niter=y;
 }
