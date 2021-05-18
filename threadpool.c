@@ -77,6 +77,7 @@ static void *threadpool_worker(void *arg){
 		work=threadpool_work_get(tp);
 		tp->working_cnt++;							//Pool knows thread is processing
 		pthread_mutex_unlock(&tp->work_mutex);
+        //Processing and destroying the work
 		if(work!=NULL){
 			work->func(work->arg);
 			threadpool_work_destroy(work);
@@ -169,7 +170,7 @@ void worker(void *arg)
     int *val = arg;
     int  old = *val;
 
-    *val += 1000;
+    *val += 500;
     printf("tid=%p, old=%d, val=%d\n", pthread_self(), old, *val);
 
     if (*val%2)
