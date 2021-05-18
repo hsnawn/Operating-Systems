@@ -168,10 +168,9 @@ void threadpool_wait(threadpool_t *tp)
 void worker(void *arg)
 {
     int *val = arg;
-    int  old = *val;
-
-    *val += 500;
-    printf("tid=%p, old=%d, val=%d\n", pthread_self(), old, *val);
+    int old=1;
+    *val = 1000;
+    printf("Add Function=%d , threadid=%d,\n", pthread_self(), old+*val);
 
     if (*val%2)
         usleep(100000);
