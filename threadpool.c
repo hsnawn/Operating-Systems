@@ -8,7 +8,7 @@
 static const size_t num_threads = 4;
 static const size_t num_items   = 100;
 
-
+//Work Queue linked list
 struct threadpool_work{
 	thread_function func;
 	void *arg;
@@ -27,23 +27,26 @@ struct threadpool{
 	bool				stop; 			//Stops the thread
 };
 
+//Creating work in the Queue
 static threadpool_work_t *threadpool_work_create(thread_function func, void *arg){
 	threadpool_work_t  *work;
 	if(func == NULL)
 		return NULL;
-	
+	//malloc allocate memory
 	work = malloc(sizeof(*work));
 	work->func = func;
 	work->arg = arg;
 	return work;
 }
-
+//Destroying work in the queue
 static void threadpool_work_destroy(threadpool_work_t *work){
 	if (work==NULL)
 		return;
+    //free allocated memory
 	free(work);
 }
 
+//Getting work from the queue and decrement of value in the queue
 static threadpool_work_t *threadpool_work_get(threadpool_t *tp){
 	threadpool_work_t *work;
 	if(tp==NULL)
@@ -67,7 +70,8 @@ static void *threadpool_worker(void *arg){
 	while(1){										//Keeps the thread running
 		pthread_mutex_lock(&(tp->work_mutex)); 		//Looking the mutex, nothing manuplates the members
 		while(tp->first_work==NULL && !tp->stop){
-			pthread_cond_wait(&(tp->work_cond),&(tp->work_mutex));
+			pthread_cond_wait(&(tp->work_cond),&(tp->work_mutex)); 
+            //Check for running work
 		if(tp->stop)
 			break;
 		work=threadpool_work_get(tp);
