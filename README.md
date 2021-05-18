@@ -18,3 +18,7 @@ Below is the description of each file and their respective lab
   ###   [4.27](./Lab4/fibonacci_series.c)
   ###   [7.15](./Lab4/concurrent_fibonacci_series.c)
   ###   [7.17](./Lab4/several_monte_carlo.c)
+
+## Lab 5
+  ###   [threadpool.h](https://github.com/hsnawn/Operating-Systems/blob/lab5/threadpool.h)
+  ###   [threadpool.c](https://github.com/hsnawn/Operating-Systems/blob/lab5/threadpool.c)
