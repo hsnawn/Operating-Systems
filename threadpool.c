@@ -6,7 +6,6 @@
 
 
 static const size_t num_threads = 4;
-static const size_t num_items   = 100;
 
 //Work Queue linked list
 struct threadpool_work{
@@ -95,13 +94,14 @@ static void *threadpool_worker(void *arg){
 		}
 	}
 }
-
+//Allocating memory in thread creation
 threadpool_t *threadpool_create(size_t num){
 	threadpool_t *tp;
 	pthread_t thread;
 	size_t i;
 	if(num==0)
 		num=2;
+    //Calloc is used for multiples block memory allocation
 	tp=calloc(1,sizeof(*tp));
 	tp->thread_cnt=num;
 	pthread_mutex_init(&(tp->work_mutex), NULL);
@@ -121,7 +121,7 @@ threadpool_t *threadpool_create(size_t num){
 	;
 }
 
-
+//Destroy the thread pool and free the allocated memory
 void threadpool_destroy(threadpool_t *tp)
 {
     threadpool_work_t *work;
@@ -149,7 +149,7 @@ void threadpool_destroy(threadpool_t *tp)
 
     free(tp);
 }
-
+//only return when there is no work
 void threadpool_wait(threadpool_t *tp)
 {
     if (tp == NULL)
@@ -165,6 +165,7 @@ void threadpool_wait(threadpool_t *tp)
     }
     pthread_mutex_unlock(&(tp->work_mutex));
 }
+//Work(func) which needs to be implemented
 void worker(void *arg)
 {
     int *val = arg;
@@ -200,7 +201,7 @@ bool threadpool_add_work(threadpool_t *tp, thread_function func, void *arg)
 
     return true;
 }
-
+//Main function for testing
 int main(int argc, char **argv)
 {
     threadpool_t *tp;
@@ -210,7 +211,7 @@ int main(int argc, char **argv)
     tp   = threadpool_create(num_threads);
     vals = calloc(num_items, sizeof(*vals));
 
-    for (i=0; i<num_items; i++) {
+    for (i=0; i<3; i++) {
         vals[i] = i;
         threadpool_add_work(tp, worker, vals+i);
     }
