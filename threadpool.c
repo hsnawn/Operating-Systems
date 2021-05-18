@@ -217,11 +217,7 @@ int main(int argc, char **argv)
 
     threadpool_wait(tp);
 
-    for (i=0; i<num_items; i++) {
-        printf("%d\n", vals[i]);
-    }
 
-    free(vals);
     threadpool_destroy(tp);
     return 0;
 }
