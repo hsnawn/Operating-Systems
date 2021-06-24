@@ -24,4 +24,8 @@ Below is the description of each file and their respective lab
   ###   [threadpool.c](https://github.com/hsnawn/Operating-Systems/blob/lab5/threadpool.c)
 
 ## Lab 7
-  ###   [Files.rar](https://github.com/hsnawn/Operating-Systems/blob/main/os%20lab%207)
+  ###   [simplefs-disk.c](https://github.com/hsnawn/Operating-Systems/blob/main/simplefs-disk.c)
+  ###   [simplefs-disk.h](https://github.com/hsnawn/Operating-Systems/blob/main/simplefs-disk.h)
+  ###   [simplefs-ops.c](https://github.com/hsnawn/Operating-Systems/blob/main/simplefs-ops.c)
+  ###   [simplefs-ops.exe](https://github.com/hsnawn/Operating-Systems/blob/main/simplefs-ops.exe)
+  ###   [simplefs-ops.h](https://github.com/hsnawn/Operating-Systems/blob/main/simplefs-ops.h) 
